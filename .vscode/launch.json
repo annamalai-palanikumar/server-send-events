@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-App<server-send-events>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "in.er.annamalai.App",
+            "projectName": "server-send-events",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

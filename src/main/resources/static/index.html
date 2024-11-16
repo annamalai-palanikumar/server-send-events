@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSE Broadcast</title>
+</head>
+<body>
+    <h1>Server Sent Events (SSE) Broadcast</h1>
+    <ul id="messages"></ul>
+
+    <script>
+        const eventSource = new EventSource('/events');
+
+        eventSource.onmessage = function(event) {
+            const message = event.data;
+            const li = document.createElement('li');
+            li.textContent = message;
+            document.getElementById('messages').appendChild(li);
+        };
+
+        eventSource.onerror = function(event) {
+            console.error("EventSource failed:", event);
+        };
+    </script>
+</body>
+</html>

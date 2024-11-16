@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broadcast Page</title>
+    <script>
+        // Function to send the broadcast message using AJAX
+        function sendBroadcastMessage() {
+            const message = document.getElementById("message").value;
+            
+            if (message.trim() === "") {
+                alert("Please enter a message");
+                return;
+            }
+
+            // Create a POST request to send the message
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "/broadcast", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        alert("Message broadcasted successfully!");
+                    } else {
+                        alert("Failed to broadcast the message.");
+                    }
+                }
+            };
+
+            // Send the message to the server
+            const data = JSON.stringify({ message: message });
+            xhr.send(data);
+        }
+    </script>
+</head>
+<body>
+    <h1>Broadcast Message</h1>
+    <div>
+        <label for="message">Message: </label>
+        <input type="text" id="message" name="message" placeholder="Enter message to broadcast" required>
+    </div>
+    <button onclick="sendBroadcastMessage()">Send Broadcast</button>
+</body>
+</html>

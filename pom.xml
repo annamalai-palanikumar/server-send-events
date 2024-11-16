@@ -20,8 +20,29 @@
 		</dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-thymeleaf</artifactId>
+  </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
+    <!-- Spring Data Redis for Redis integration -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-redis</artifactId>
+  </dependency>
+
+  <!-- Embedded Redis for in-memory Redis server -->
+  <dependency>
+    <groupId>com.github.codemonstur</groupId>
+    <artifactId>embedded-redis</artifactId>
+    <version>1.4.2</version>
+  </dependency>
+  <dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <scope>provided</scope>
+</dependency>
   </dependencies>
   <build>
 		<plugins>
